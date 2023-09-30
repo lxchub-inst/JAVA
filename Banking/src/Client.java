@@ -13,6 +13,7 @@ public class Client {
         this.prenom = prenom;
         this.id_compte = id_compte;
 
+        // Mise en forme de la date de naissance pour l'affichage en français
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
         // convert String to LocalDate
