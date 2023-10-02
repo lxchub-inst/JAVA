@@ -3,16 +3,26 @@ import java.util.List;
 import java.util.Scanner;
 
 public class SommeNombres {
-    public static List<String> SommeNombres(String chaine) {
-        List<String> listeNombres = new ArrayList<>();
+    public static float SommeNombres(String chaine) {
         Scanner sc_liste = new Scanner(chaine);
+        float somme = 0;
 
         sc_liste.useDelimiter("");
 
         while (sc_liste.hasNext()) {
-            int nombre = Integer.parseInt(sc_liste.next());
-            nombre++;
+            if (sc_liste.hasNextInt()) {
+                somme += sc_liste.nextInt();
+            } else {
+                sc_liste.next();
+            }
         }
-        return listeNombres;
+        sc_liste.close();
+        return somme;
+    }
+
+    public static void main(String[] args) {
+        String chaine = "3 un deux 4 3,5 -20";
+        float nombres = SommeNombres(chaine);
+        System.out.println(nombres);
     }
 }
